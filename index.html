@@ -6,94 +6,11 @@
         </title>
     </head>
     <body>
-
-        <h1>Hello World!</h1>
         <div id="app">
-            
-        </div> 
-        <div>
-            <input type="text" name="nome" id='inputText'>
-            <button onClick="adicionar()">Adicionar</button>
+            <ul></ul>
+            <input type="text" placeholder="Digite aqui um TODO" id="input">
+            <button type="submit" id="btnAdicionar">Adicionar</button>
         </div>
-        <button id='btnCriar' onClick=gerarQuadrado()>Gerar Quadrados</button>
-        
-        <div class="box" ></div>
-        
-
-        <script>
-            var nomes = ['Diego', 'Gabriel'];
-           
-            function list(nomes){
-                
-                var ulElement = document.createElement('ul');
-                
-                for(var i = 0; i < nomes.length; i++){
-                    var liElement = document.createElement('li');
-                    liElement.appendChild(document.createTextNode(nomes[i]));
-                    ulElement.appendChild(liElement);
-
-                }
-                return ulElement;
-            }
-               
-                
-            function adicionar(){
-                var inputElement = document.getElementById('inputText').value;
-                    
-                nomes.push(inputElement);
-                document.querySelector('.box').innerHTML = ""; //  esvazia a div
-                document.querySelector('.box').appendChild(list(nomes));
-
-            }
-
-            
-            document.querySelector('.box').appendChild(list(nomes));
-
-            var btnCriar = document.querySelector('#btnCriar');
-            btnCriar.style.color = '#fff'
-            btnCriar.style.fontWeight = 'bold';
-            btnCriar.style.backgroundColor = '#424242';
-            btnCriar.style.border = 'solid #ddd';
-            btnCriar.style.width = '200px';
-            btnCriar.style.height = '40px';
-            btnCriar.style.marginLeft = '45%';
-
-            function alteraCor() {
-                var boxElement = document.querySelector(".box");
-                boxElement.style.backgroundColor = getRandomColor();
-            }
-
-            function getRandomColor() {
-                var letters = "0123456789ABCDEF";
-                var color = "#";
-                for (var i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-                }
-                return color;            }
-           
-
-            function gerarQuadrado() {
-
-                let boxElement = document.createElement("div");
-                boxElement.style.width = '180px';
-                boxElement.style.height = '180px';
-                boxElement.style.margin = '10px';
-                boxElement.style.backgroundColor = 'blue';
-                
-                boxElement.addEventListener('mouseover', () =>{
-                    var newColor = getRandomColor(); // #E943F0
-                    boxElement.style.backgroundColor = newColor;
-                });
-                
-                //adiciona a classe .box na div criada
-                boxElement.classList.add('box');
-
-                document.body.appendChild(boxElement);
-
-            }
-            
-           
-        </script>
-
+        <script src='todos.js'></script>
     </body>
 </html>
